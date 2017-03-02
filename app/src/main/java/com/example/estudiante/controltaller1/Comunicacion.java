@@ -22,10 +22,10 @@ public class Comunicacion extends Observable implements Runnable {
 
     public Comunicacion(){
         try {
-          ipDestino= InetAddress.getByName("192.168.108.38");
+          ipDestino= InetAddress.getByName("192.168.43.57");
             miPuerto= 5001;
             puertoDestino= 6000;
-            miBuzon= new DatagramSocket(miPuerto);
+            miBuzon= new DatagramSocket();
         }catch (SocketException e){
          e.printStackTrace();
         }catch (IOException e){
