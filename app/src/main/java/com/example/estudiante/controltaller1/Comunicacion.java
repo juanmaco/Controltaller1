@@ -22,7 +22,7 @@ public class Comunicacion extends Observable implements Runnable {
 
     public Comunicacion(){
         try {
-          ipDestino= InetAddress.getByName("172.30.122.124");
+          ipDestino= InetAddress.getByName("192.168.120.74");
             miPuerto= 5001;
             puertoDestino= 6000;
             miBuzon= new DatagramSocket(miPuerto);
@@ -44,20 +44,21 @@ public class Comunicacion extends Observable implements Runnable {
         }
     }
     public void enviar(final String data) {
-        new Thread(new Runnable() {
+       new Thread(new Runnable() {
             public void run() {
-                while (true) {
+               // while (true) {
                     try {
                         byte[] bytes = data.getBytes();
                         DatagramPacket enviarP = new DatagramPacket(bytes, bytes.length, ipDestino, puertoDestino);
                         miBuzon.send(enviarP);
+                        System.out.println("envia");
                     } catch (SocketException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                }
-            }
+               // }
+             }
         }).start();
     }
 }

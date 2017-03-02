@@ -21,13 +21,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         derecha= (Button) findViewById(R.id.derecha);
         com= new Comunicacion();
         Thread hilo = new Thread(com);
+        izquierda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String mensaje= "left";
+
+                com.enviar(mensaje);
+                System.out.println("holi");
+            }
+        });
+        derecha.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                String mensaje= "right";
+                com.enviar(mensaje);
+            }
+        });
     }
 
     @Override
     public void onClick(View view) {
         if(view.getId()== izquierda.getId()){
             String mensaje= "left";
+            System.out.println("holi");
             com.enviar(mensaje);
+
         }
         if(view.getId()==derecha.getId()){
             String mensaje= "right";
