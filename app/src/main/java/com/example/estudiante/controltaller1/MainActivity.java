@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String mensaje= "left";
 
                 com.enviar(mensaje);
-                System.out.println("holi");
+                System.out.println("holil");
             }
         });
         derecha.setOnClickListener(new View.OnClickListener(){
